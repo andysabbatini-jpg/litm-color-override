@@ -23,5 +23,5 @@ This module:
 
 Manifest URL: 
 `
-https://raw.githubusercontent.com/smeeth123/litm-color-override/master/module.json
+https://github.com/smeeth123/litm-color-override/releases/latest/download/module.json
 `
