@@ -1,4 +1,4 @@
-Legend in the Mist — Tag & Status Color Override
+#Legend in the Mist — Tag & Status Color Override
 
 This module overrides the tag and status colors in the Legend in the Mist Foundry system so that they are consistent with the colors used in the official books.
 
