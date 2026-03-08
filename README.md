@@ -20,3 +20,5 @@ In several places, statuses are actually output as plain .tag elements with a ti
 This module:
 	1.	Applies a consistent color palette via CSS.
 	2.	Adds a small client-side script that identifies tiered entries (e.g. -2, +2, or a tier shown on a new line) and marks them as statuses so they can be styled correctly.
+
+Manifest URL: https://raw.githubusercontent.com/smeeth123/litm-color-override/master/module.json
