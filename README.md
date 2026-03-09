@@ -10,7 +10,7 @@ This override instead follows the core game convention:
 
 • Statuses are always green
 
-In addtion, the module also standardizes font color for tags and statuse (for readability with this color scheme), and ensures a visual indicator for all negative tags and stauses.
+In addtion, the module also standardizes font color for tags and statuses (for readability with this color scheme), and ensures a visual indicator for all negative tags and stauses.
 
 The change is purely visual and does not alter mechanics or data.
 
