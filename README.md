@@ -12,7 +12,7 @@ This override instead follows the core game convention:
 
 In addtion, the module also standardizes font color for tags and statuses (for readability with this color scheme), and ensures a visual indicator for all negative tags and stauses.
 
-The change is purely visual and does not alter mechanics or data.
+Changes are purely visual and do not alter mechanics or data.
 
 Manifest URL: 
 `
