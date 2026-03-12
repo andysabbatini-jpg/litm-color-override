@@ -68,7 +68,7 @@
     });
   });
 
-  // Mostra + invece di - per gli status positivi
+  // Mostra + invece di - per gli status positivi nella scheda personaggio
   const fixPositiveStatusDisplay = () => {
     document.querySelectorAll(".fts-input-name.positive .fts-selectable").forEach(el => {
       const text = el.textContent.trim();
@@ -79,8 +79,22 @@
   Hooks.on("renderMistEngineLegendInTheMistCharacterSheet", () => {
     requestAnimationFrame(fixPositiveStatusDisplay);
   });
+
+  // Mostra + invece di - per gli status positivi nel popup dado
+  const fixPositiveStatusInRollPopup = () => {
+    document.querySelectorAll(".tag.positive.is-status").forEach(el => {
+      el.childNodes.forEach(node => {
+        if (node.nodeType === Node.TEXT_NODE) {
+          const text = node.textContent.trim();
+          const match = text.match(/^(.+?)-(\d+)\s*$/);
+          if (match) node.textContent = ` ${match[1]}+${match[2]} `;
+        }
+      });
+    });
+  };
   Hooks.on("renderDiceRollApp", () => {
     setTimeout(fixPositiveStatusInRollPopup, 0);
     setTimeout(fixPositiveStatusInRollPopup, 250);
   });
+
 })();
