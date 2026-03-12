@@ -67,8 +67,8 @@
       }
     });
   });
-})();
-// Mostra + invece di - per gli status positivi
+
+  // Mostra + invece di - per gli status positivi
   const fixPositiveStatusDisplay = () => {
     document.querySelectorAll(".fts-input-name.positive .fts-selectable").forEach(el => {
       const text = el.textContent.trim();
@@ -76,7 +76,7 @@
       if (match) el.textContent = `${match[1]} +${match[2]}`;
     });
   };
-
   Hooks.on("renderMistEngineLegendInTheMistCharacterSheet", () => {
-    setTimeout(fixPositiveStatusDisplay, 100);
+    requestAnimationFrame(fixPositiveStatusDisplay);
   });
+})();
