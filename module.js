@@ -79,4 +79,8 @@
   Hooks.on("renderMistEngineLegendInTheMistCharacterSheet", () => {
     requestAnimationFrame(fixPositiveStatusDisplay);
   });
+  Hooks.on("renderDiceRollApp", () => {
+    setTimeout(fixPositiveStatusInRollPopup, 0);
+    setTimeout(fixPositiveStatusInRollPopup, 250);
+  });
 })();
