@@ -55,14 +55,16 @@
   Hooks.on("renderApplication", () => setTimeout(scan, 0));
   Hooks.on("renderChatMessage", () => setTimeout(scan, 0));
 
-  // FIX: nuovo tag creato come positivo di default
+  // Nuovo elemento creato con + diventa status di default
   Hooks.on("preUpdateActor", (actor, changes) => {
     if (!changes.system?.floatingTagsAndStatuses) return;
     const newTags = changes.system.floatingTagsAndStatuses;
     const oldTags = actor.system.floatingTagsAndStatuses;
     if (newTags.length <= oldTags.length) return;
     newTags.forEach(tag => {
-      if (!("positive" in tag)) tag.positive = true;
+      if (!("positive" in tag)) {
+        tag.isStatus = true;
+      }
     });
   });
 })();
