@@ -2,7 +2,7 @@
  "id": "litm-color-override-andy",
   "title": "Legend in the Mist — Tag & Status Color Override",
   "description": "Normalizes tag and status colors in the Legend in the Mist system.",
-  "version": "1.5",
+  "version": "1.5.1",
   "authors": [
     {
       "name": "smeeth123 (original), andysabbatini-jpg (fork)"
