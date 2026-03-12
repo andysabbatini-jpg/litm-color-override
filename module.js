@@ -55,27 +55,14 @@
   Hooks.on("renderApplication", () => setTimeout(scan, 0));
   Hooks.on("renderChatMessage", () => setTimeout(scan, 0));
 
-  // FIX: nuovo tag floating creato come positivo di default
-  const fixNewFloatingTag = new MutationObserver((mutations) => {
-    for (const m of mutations) {
-      for (const n of m.addedNodes || []) {
-        if (n.nodeType !== 1) continue;
-        const newNegative = n.classList?.contains("fts-input-name")
-          ? (n.classList.contains("negative") ? n : null)
-          : n.querySelector?.(".fts-input-name.negative");
-        if (!newNegative) continue;
-        // Solo se il tag è nuovo e vuoto
-        const span = newNegative.querySelector(".fts-selectable");
-        const text = (span?.textContent || "").trim();
-        if (text !== "") continue;
-        const toggle = newNegative.querySelector(".fts-tag-modifier-toggle");
-        if (toggle) toggle.click();
-      }
-    }
+  // FIX: nuovo tag creato come positivo di default
+  Hooks.on("preUpdateActor", (actor, changes) => {
+    if (!changes.system?.floatingTagsAndStatuses) return;
+    const newTags = changes.system.floatingTagsAndStatuses;
+    const oldTags = actor.system.floatingTagsAndStatuses;
+    if (newTags.length <= oldTags.length) return;
+    newTags.forEach(tag => {
+      if (!("positive" in tag)) tag.positive = true;
+    });
   });
-
-  Hooks.on("ready", () => {
-    fixNewFloatingTag.observe(document.body, { childList: true, subtree: true });
-  });
-
 })();
